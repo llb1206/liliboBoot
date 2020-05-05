@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.mapper.insertP">
+
+    <insert id="insertP" parameterType="com.mapper.person">
+        insert into person(id,namess,dates,age,jiage) values(#{p.id},#{p.name},#{p.date},#{p.age},#{p.jiage});
+    </insert>
+
+    <select id="secP" resultType="com.mapper.person">
+        select dates date from person;
+    </select>
+</mapper>
+ 
