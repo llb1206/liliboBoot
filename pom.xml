@@ -11,7 +11,6 @@
     <modules>
         <module>bootx1</module>
         <module>bootx2</module>
-        <module>bootx3</module>
         <module>bootx5</module>
     </modules>
     <dependencyManagement><!--父工程引导依赖注解 -->
