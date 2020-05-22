@@ -1,6 +1,6 @@
-package com.filter.config;
+package com.FilterRBAC.config;
 
-import com.filter.filter.SessionFilter;
+import com.FilterRBAC.filter.SessionFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
