@@ -17,36 +17,6 @@ import java.util.List;
 @Slf4j
 public class SessionInterceptor implements HandlerInterceptor {
 
-    private boolean isEnableSession = true;
-
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session = request.getSession(false);
-        AuthNoneIgnore annotation;
-        if (handler instanceof HandlerMethod) {
-            annotation = ((HandlerMethod) handler).getMethodAnnotation(AuthNoneIgnore.class);
-        } else {
-            return true;
-        }
-        if (annotation != null) {
-            return true;
-        } else {
-            if (isEnableSession) {
-                if (session != null && session.getAttribute("userId") != null) {
-                    Long userId = (Long) session.getAttribute("userId");
-                    if (userId != null && this.hasPermission(handler, userId)) {
-                        return true;
-                    } else {
-                        throw new SecurityException("this process no authority");
-                    }
-                } else {
-                    throw new SecurityException("this process no authority");
-                }
-            }
-            return true;
-        }
-    }
-
     /**
      * 是否有权限
      *
