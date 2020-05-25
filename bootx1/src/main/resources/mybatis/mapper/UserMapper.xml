@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mapper.UserTest">
+<mapper namespace="com.Mapper.UserTest">
 
-    <insert id="addUser" parameterType="com.mapper.User">
+    <insert id="addUser" parameterType="com.Mapper.User">
         insert into user(id,username,sex,birthday,adress) values(#{id},#{username},#{sex},#{birthday},#{adress});
     </insert>
 
-    <select id="sel" resultType="com.mapper.User">
+    <select id="sel" resultType="com.Mapper.User">
         select  * from user
     </select>
     <!-- trim 很重要！！-->
-    <select id="selectUserByUsernameAndSex" resultType="com.mapper.User" parameterType="com.mapper.User">
+    <select id="selectUserByUsernameAndSex" resultType="com.Mapper.User" parameterType="com.Mapper.User">
         select * from user
          <where>
             <if test="username != null">
@@ -31,7 +31,7 @@
 <!--            </if>-->
 <!--        </trim>-->
     </select>
-    <select id="selectUserByUsernameAndSex2" resultType="com.mapper.User" parameterType="com.mapper.User">
+    <select id="selectUserByUsernameAndSex2" resultType="com.Mapper.User" parameterType="com.Mapper.User">
         select * from user
         <where>
             <if test="username != null ">
@@ -46,7 +46,7 @@
 
     <!-- 有时候，我们不想用到所有的查询条件，只想选择其中的一个，查询条件有一个满足即可，
     使用 choose 标签可以解决此类问题，类似于 Java 的 switch 语句-->
-    <select id="selectUserByChoose" resultType="com.mapper.User" parameterType="com.mapper.User">
+    <select id="selectUserByChoose" resultType="com.Mapper.User" parameterType="com.Mapper.User">
         select * from user
         <where>
             <choose>
@@ -62,7 +62,7 @@
             </choose>
         </where>
     </select>
-    <update id="updateUserById" parameterType="com.mapper.User">
+    <update id="updateUserById" parameterType="com.Mapper.User">
         update user u
          <set>
             <if test="username != null and username != ''">
@@ -95,7 +95,7 @@
         </if>
     </sql>
 
-    <select id="selectUserByUsernameAndSex22" resultType="com.mapper.User" parameterType="com.mapper.User">
+    <select id="selectUserByUsernameAndSex22" resultType="com.Mapper.User" parameterType="com.Mapper.User">
         select * from user
         <trim prefix="where" prefixOverrides="and | or">
             <!-- 引用 sql 片段，如果refid 指定的不在本文件中，那么需要在前面加上 namespace -->
@@ -104,7 +104,7 @@
         </trim>
     </select>
 
-    <select id="selectUserByListId" parameterType="Integer" resultType="com.mapper.User">
+    <select id="selectUserByListId" parameterType="Integer" resultType="com.Mapper.User">
         select * from user
         <where>
             <!--
@@ -120,10 +120,10 @@
             </foreach>
         </where>
     </select>
-    <resultMap id="sAassociation" type="com.mapper.banjiA">
+    <resultMap id="sAassociation" type="com.Mapper.banjiA">
         <id column="did" property="id"></id><!--resultMap="sCollection"对应上  两个id起别名 -->
         <result column="name" property="name"></result>
-        <association property="user" javaType="com.mapper.User"><!--association对应javaType 不是type -->
+        <association property="user" javaType="com.Mapper.User"><!--association对应javaType 不是type -->
             <id column="uid" property="id"></id>
             <result column="username" property="username"></result>
             <result column="sex" property="sex"></result>
@@ -135,10 +135,10 @@
   select  a.id did ,a.name name ,b.id uid ,b.username username ,b.sex sex ,b.birthday birthday,b.adress adress
          from banji a ,user b where   a.id = b.bid and a.id = #{id};
     </select>
-    <resultMap id="sCollection" type="com.mapper.banjiC">
+    <resultMap id="sCollection" type="com.Mapper.banjiC">
         <id column="did" property="id"></id><!--resultMap="sCollection"对应上  两个id起别名 -->
         <result column="name" property="name"></result>
-        <collection property="users" ofType="com.mapper.User">
+        <collection property="users" ofType="com.Mapper.User">
             <id column="uid" property="id"></id>
             <result column="username" property="username"></result>
             <result column="sex" property="sex"></result>
