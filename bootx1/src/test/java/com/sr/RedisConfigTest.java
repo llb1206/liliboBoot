@@ -1,9 +1,9 @@
 package com.sr;
 
 import org.junit.jupiter.api.Test;
-import com.redis.domain.UserVo;
-import com.redis.service.RedisService;
-import com.redis.util.RedisKeyUtil;
+import com.Redis.domain.UserVo;
+import com.Redis.service.RedisService;
+import com.Redis.util.RedisKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.*;

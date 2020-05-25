@@ -1,4 +1,4 @@
-package com.redis.util;
+package com.Redis.util;
 
 /**
  * redisKey设计

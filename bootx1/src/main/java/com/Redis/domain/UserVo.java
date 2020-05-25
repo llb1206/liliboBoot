@@ -1,4 +1,4 @@
-package com.redis.domain;
+package com.Redis.domain;
 
 import lombok.Data;
 
