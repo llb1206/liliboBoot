@@ -1,6 +1,7 @@
 package com.suyu.websocket.controller;
 
 import com.suyu.websocket.server.SocketServer;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +30,11 @@ public class WebSocketController {
     public String idnex() {
 
         return "index";
+    }
+    @RequestMapping(value = "/i")
+    public String i() {
+
+        return "ws";
     }
 
     /**
@@ -69,6 +75,22 @@ public class WebSocketController {
     @ResponseBody
     public String sendAll(String msg){
         SocketServer.sendAll(msg);
+        return "success";
+    }
+
+    /**
+     * 推送给所有在线用户//不间断
+     * @return
+     */
+    @SneakyThrows
+    @RequestMapping("ss")
+    @ResponseBody
+    public String sensdAll(){
+        for (int i = 0; i < 10000; i++) {
+            Thread.sleep(1000);
+            SocketServer.sendAll("msg"+i);
+        }
+
         return "success";
     }
 }

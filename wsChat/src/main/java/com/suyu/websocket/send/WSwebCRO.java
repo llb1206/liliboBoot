@@ -1,4 +1,4 @@
-package com;
+package com.suyu.websocket.send;
 
 import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.client.WebSocketClient;
@@ -8,15 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-public class WebSocketController {
+public class WSwebCRO {
 
     @Autowired
     private WebSocketClient webSocketClient;
 
-    //http://127.0.0.1:8002/subscribe
-    @GetMapping("subscribe")
+    //http://127.0.0.1:8086/sub
+    @GetMapping("sub")
     public String subscribe() {
-        webSocketClient.send("hello sever，i want subscribe data A");
+
+        int a = 0;
+        while (a < 100000){
+            a++;
+            webSocketClient.send("hello sever，i want subscribe data A"+a);
+        }
+
         return "发送订阅成功！！！";
     }
 }

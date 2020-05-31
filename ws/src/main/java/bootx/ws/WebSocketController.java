@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 
@@ -44,7 +45,11 @@ public class WebSocketController {
     }
 
     @OnMessage
-    public void onMessage(String message, Session session) {
+    public void onMessage(String message, Session session) throws IOException {
+        if (this.session.isOpen()) {
+            while (true)
+            this.session.getBasicRemote().sendText(message);
+        }
         log.info("Receive a message from client: " + message);
     }
 
