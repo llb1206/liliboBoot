@@ -1,0 +1,6 @@
+server:
+  port: 8001
+#  设置服务名
+spring:
+  application:
+    name: websocket-SERVER
