@@ -29,8 +29,8 @@ public class WebSocketController {
         System.out.println(this.session.getId());
         webSocketSet.add(this);
         log.info("Open a websocket. id={}, name={}", id, name);
+        int i=0;
         while (true) {
-            int i=0;
             i++;
             Thread.sleep(1000);
             sendMessage("hello websocket"+i);

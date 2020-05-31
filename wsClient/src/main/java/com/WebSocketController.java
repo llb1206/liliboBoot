@@ -19,4 +19,6 @@ public class WebSocketController {
         webSocketClient.send("hello sever，i want subscribe data A");
         return "发送订阅成功！！！";
     }
+
+
 }

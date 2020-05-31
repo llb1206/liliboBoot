@@ -34,7 +34,6 @@ public class MyWebSocketClient extends WebSocketClient {
     @Override
     public void onMessage(String arg0) {
         // TODO Auto-generated method stub
-        log.info("-------- Java-Client接收到服务端数据： " + arg0 + "--------");
-        log.info("\n");
+        log.info("-------- Java-Client接收到服务端数据： " + arg0 + "--------\n");
     }
 }

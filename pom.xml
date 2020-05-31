@@ -14,6 +14,7 @@
         <module>bootx5</module>
         <module>ws</module>
         <module>wsClient</module>
+        <module>wsChat</module>
     </modules>
     <dependencyManagement><!--父工程引导依赖注解 -->
         <dependencies>
