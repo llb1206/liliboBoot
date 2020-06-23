@@ -16,24 +16,24 @@ public class MyWebSocketClient extends WebSocketClient {
     @Override
     public void onOpen(ServerHandshake arg0) {
         // TODO Auto-generated method stub
-        log.info("------ MyWebSocket onOpen ------");
+        log.info("------ 客户端 onOpen ------");
     }
 
     @Override
     public void onClose(int arg0, String arg1, boolean arg2) {
         // TODO Auto-generated method stub
-        log.info("------ MyWebSocket onClose ------{}",arg1);
+        log.info("------ 客户端 onClose ------{}",arg1);
     }
 
     @Override
     public void onError(Exception arg0) {
         // TODO Auto-generated method stub
-        log.info("------ MyWebSocket onError ------{}",arg0);
+        log.info("------ 客户端 onError ------{}",arg0);
     }
 
     @Override
     public void onMessage(String arg0) {
         // TODO Auto-generated method stub
-        log.info("-------- Java-Client接收到服务端数据： " + arg0 + "--------\n");
+        log.info("-------- Java-客户端： " + arg0 + "--------\n");
     }
 }
