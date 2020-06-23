@@ -15,7 +15,7 @@
         <module>ws</module>
         <module>wsClient</module>
     </modules>
-    <dependencyManagement><!--父工程引导依赖注解 -->
+    <dependencyManagement><!--父工程引导依赖注解-->
         <dependencies>
 <!--            <dependency>-->
 <!--                <groupId>org.springframework.cloud</groupId>-->
