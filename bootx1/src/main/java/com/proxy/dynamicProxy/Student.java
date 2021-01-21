@@ -9,4 +9,8 @@ public class Student implements Person {
     public void giveTask() {
         System.out.println(name + "交语文作业");
     }
+
+    public void fuck() {
+        System.out.println(name + "fucking............");
+    }
 }
