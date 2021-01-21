@@ -1,4 +1,4 @@
-package com.proxy.x1;
+package com.proxy.staticProxy;
 
 public class StaticProxyTest {
     public static void main(String[] args) {

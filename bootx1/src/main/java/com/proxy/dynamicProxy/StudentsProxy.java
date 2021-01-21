@@ -1,4 +1,4 @@
-package com.proxy.x1;
+package com.proxy.dynamicProxy;
 
 public class StudentsProxy implements Person{
     //被代理的学生
@@ -16,3 +16,4 @@ public class StudentsProxy implements Person{
         stu.giveTask();
     }
 }
+

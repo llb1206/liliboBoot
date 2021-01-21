@@ -1,4 +1,4 @@
-package com.proxy.x1;
+package com.proxy.staticProxy;
 
 public class Student implements Person {
     private String name;

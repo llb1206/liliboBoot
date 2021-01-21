@@ -1,4 +1,4 @@
-package com.proxy.x1;
+package com.proxy.dynamicProxy;
 
 public interface Person {
     //交作业
