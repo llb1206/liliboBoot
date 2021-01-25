@@ -7,16 +7,17 @@ import java.lang.reflect.Proxy;
 public class ProxyTest {
     public static void main(String[] args) {
 
-        //创建一个实例对象，这个对象是被代理的对象
-        Person linqian = new Student("林浅");
+        //     将要    被代理的对象
+        Person px = new Student("林浅");
 
         //创建一个与代理对象相关联的InvocationHandler
-        InvocationHandler stuHandler = new StuInvocationHandler<Person>(linqian);
+        InvocationHandler stuHandler = new StuInvocationHandler<>(px);
 
         //创建一个代理对象stuProxy来代理linqian，代理对象的每个执行方法都会替换执行Invocation中的invoke方法
         Person stuProxy = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(), new Class<?>[]{Person.class}, stuHandler);
 
         //代理执行交作业的方法
-        stuProxy.giveTask();
+        stuProxy.giveTask("test");
+        //stuProxy.giveTask2("test222");
     }
 }

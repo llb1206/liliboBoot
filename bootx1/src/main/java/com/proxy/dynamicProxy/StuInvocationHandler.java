@@ -17,8 +17,14 @@ public class StuInvocationHandler<T> implements InvocationHandler {
      * args：代表调用目标方法时传入的实参
      */
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("代理执行" +method.getName() + "方法");
+        System.out.println(method.getName() + "前置通知");
+        System.out.println(method.getReturnType()+ "前置通知");
+        System.out.println("参数" + args[0]);
+        System.out.println("参数数量"+method.getParameterCount());
+        System.out.println("参数类型"+method.getParameterTypes().getClass());
+        System.out.println("参数类型2"+method.getTypeParameters());
         Object result = method.invoke(target, args);
+        System.out.println("代理执行" + method.getName() + "后置通知");
         return result;
     }
 }
