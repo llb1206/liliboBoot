@@ -31,7 +31,7 @@ public class testController implements Serializable {
      * @return
      */
     @RequestMapping("/getUser")
-    @Cacheable(value = {"userCache"})
+    @Cacheable(value = {"userCache"})//value不过是拼了个前缀
     public User getUser(String userId) {
         System.out.println("如果没有缓存，就会调用下面方法，如果有缓存，则直接输出，不会输出此段话");
         return userDao.getUser(Integer.parseInt(userId));
