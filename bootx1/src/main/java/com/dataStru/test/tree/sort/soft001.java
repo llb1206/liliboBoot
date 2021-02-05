@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class soft001 {
     /**
      * 冒泡排序
-     *
+     *+-
      * @param arr
      */
     public static void mapPaoSoft(int[] arr) {
@@ -52,23 +52,48 @@ public class soft001 {
      */
     public static void insertSoft(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            int index = i;
-            int index2 = i;
-            for (int j = i; j > 1; j--) {
-                if (arr[index] < arr[j - 1]) {
-                    arr[j] = arr[j - 1];//前一个后移
-                } else {
-                    index2=;
+            int preIndex = i - 1;
+            int current = arr[i];
+            //please  想象一下，将要排序的值 拉起，就跟栈排序类似，符合条件再下坠
+            while (preIndex >= 0 && arr[preIndex] > current) {
+                arr[preIndex + 1] = arr[preIndex];
+                preIndex--;
+            }
+            arr[preIndex + 1] = current;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+    /**
+     * 希尔排序   先写出一个插入排序，再将插入排序的步长设置，但是最后一定是1，变成整体性的插入排序  就完全ojbk
+     *
+     * @param arr
+     */
+    public static void shellSoft(int[] arr) {
+        for (int step = arr.length; step > 0; step /= 2) {
+            for (int i = 0; i < arr.length; i++) {
+                int preIndex = i - step;
+                int current = arr[i];
+                //please  想象一下，将要排序的值 拉起，就跟栈排序类似，符合条件再下坠
+                while (preIndex >= 0 && arr[preIndex] > current) {
+                    arr[preIndex + step] = arr[preIndex];
+                    //preIndex--;
+                    preIndex -= step;
                 }
+                arr[preIndex + step] = current;
             }
         }
         System.out.println(Arrays.toString(arr));
     }
 
+
+
+
     public static void main(String[] args) {
-        int[] arr = {6, 9, 3, 8, -1, 2, 7, 5};
-        //mapPaoSoft(arr);
-        //selectSoft(arr);
-        insertSoft(arr);
+        int[] arrays = {6, 9, 3, 8, -1, 2, 7, 5};
+        //mapPaoSoft(arrays);
+        //selectSoft(arrays);
+        //insertSoft(arrays);
+        shellSoft(arrays);
     }
 }
