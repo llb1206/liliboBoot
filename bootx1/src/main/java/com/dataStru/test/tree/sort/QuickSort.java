@@ -38,8 +38,10 @@ public class QuickSort {
         }
         // 跳出循环时low和high相等,此时的low或high就是tmp的正确索引位置
         // 由原理部分可以很清楚的知道low位置的值并不是tmp,所以需要将tmp赋值给arr[low]
+        // 返回tmp的正确位置
+        //这时  low和high是一样的
         arr[low] = tmp;
-        return low; // 返回tmp的正确位置
+        return low;
     }
 
     public static void main(String[] args) {
