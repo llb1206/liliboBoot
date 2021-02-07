@@ -3,11 +3,9 @@ package com.dataStru.test.tree.sort;
 import java.util.Arrays;
 
 /**
- * https://blog.csdn.net/nrsc272420199/article/details/82587933?utm_medium=distribute.pc_relevant.none-
- * task-blog-BlogCommendFromMachineLearnPai2-2.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
+ * @author 15000
  */
 public class QuickSort {
-
     private static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             // 找寻基准数据的正确索引
@@ -23,7 +21,7 @@ public class QuickSort {
         // 基准数据
         int tmp = arr[low];
         while (low < high) {
-            // 当队尾的元素大于等于基准数据时,向前挪动high指针
+            // 当队尾的元素大于等于基准数据时,向前挪动high指针,直到停留在
             while (low < high && arr[high] >= tmp) {
                 high--;
             }
@@ -38,15 +36,14 @@ public class QuickSort {
         }
         // 跳出循环时low和high相等,此时的low或high就是tmp的正确索引位置
         // 由原理部分可以很清楚的知道low位置的值并不是tmp,所以需要将tmp赋值给arr[low]
-        // 返回tmp的正确位置
-        //这时  low和high是一样的
         arr[low] = tmp;
+        // 返回tmp的正确位置此时 low等于high
         return low;
     }
 
     public static void main(String[] args) {
-        int[] arr = {49, 38, 65, 97, 23, 22, 76, 1, 5, 8, 2, 0, -1, 22};
+        int[] arr = {1, 5, 8, 2, 0, -1, 9};
         quickSort(arr, 0, arr.length - 1);
-        System.out.printf(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));
     }
 }
