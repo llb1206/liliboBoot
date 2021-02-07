@@ -9,8 +9,10 @@ public class QuickSort {
     private static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             // 找寻基准数据的正确索引
+            // 把一段数组  传进去，是一段....
             int index = getIndex(arr, low, high);
             // 进行迭代对index之前和之后的数组进行相同的操作使整个数组变成有序
+            // 讲数组按照基数分段，使之每段均有序，每段皆分段，，，分治
             //quickSort(arr, 0, index - 1); 之前的版本，这种姿势有很大的性能问题，谢谢大家的建议
             quickSort(arr, low, index - 1);
             quickSort(arr, index + 1, high);

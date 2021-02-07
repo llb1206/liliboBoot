@@ -47,6 +47,7 @@ public class MergeSort {
     public static void main(String[] args) {
         int arr[] = {51, 46, 20, 18, 65, 97, 82, 30, 77, 50};
         mergeSort(arr, 0, arr.length - 1);
-        System.out.println("排序结果：" + Arrays.toString(arr));
+        System.out.println(" --------------------------------------");
+        System.out.println(Arrays.toString(arr));
     }
 }
