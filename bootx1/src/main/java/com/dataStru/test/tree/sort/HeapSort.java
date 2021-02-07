@@ -16,7 +16,7 @@ public class HeapSort {
         for (int index = len / 2 - 1; index >= 0; index--) {
             heapAdjust(arr, index, len);
         }
-        //最终构建了一个 完全二叉树  哈哈哈
+        //最终构建了一个 完全二叉树
         while (len >= 0) {
             //********将堆顶元素与尾节点交换后，长度减1，尾元素最大，比较完毕 将最值放最后 并且不参与比较
             swap(arr, 0, len--);
@@ -25,6 +25,13 @@ public class HeapSort {
         }
     }
 
+    /**
+     * 构建的时候，index由大往小构造，调整的时候，从顶部 按照节点从小往大构造
+     *
+     * @param arr
+     * @param index
+     * @param length
+     */
     public static void heapAdjust(int[] arr, int index, int length) {
         int left, right, p;
         //  公式反推，推出节点左右子节点
@@ -46,6 +53,7 @@ public class HeapSort {
                 //说明比孩子节点都大，直接跳出循环语句
                 break;
             }
+            //蹦到下一个节点   这个节点index*2+1  就是下一个需要调整的节点
             index = p;
         }
     }
