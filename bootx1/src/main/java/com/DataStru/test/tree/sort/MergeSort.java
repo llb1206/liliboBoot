@@ -10,7 +10,6 @@ public class MergeSort {
 
     public static void merge(int[] arr, int low, int mid, int high) {
         int[] temp = new int[high - low + 1];
-
         /**
          * 把数组分成了两半  第一半从low 开始 第二半动mid+1开始
          */
@@ -38,9 +37,9 @@ public class MergeSort {
         while (j <= high) {
             temp[k++] = arr[j++];
         }
-        // 把新数组中的数覆盖nums数组
-        for (int k2 = 0; k2 < temp.length; k2++) {
-            arr[k2 + low] = temp[k2];
+        // 把新数组中的数覆盖 arr数组  在最小值基础上
+        for (int v = 0; v < temp.length; v++) {
+            arr[v + low] = temp[v];
         }
     }
 
@@ -49,7 +48,8 @@ public class MergeSort {
      */
     public static void mergeSort(int[] arr, int low, int high) {
         int mid = (low + high) / 2;
-
+        //首先 要 一直嘚切割，切割成一个个的独立的单元
+        //切割成1 1 1 1   所有只要<  至少不是单个  需要切割
         if (low < high) {
             //  第一阶段  左右切割  并没有真正的切割数组  也是数组分段
             //  左边  将数组切割成段  先左后右

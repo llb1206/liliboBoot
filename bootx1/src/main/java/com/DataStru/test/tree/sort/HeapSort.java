@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class HeapSort {
     private static void heapSort(int[] arr) {
         int len = arr.length - 1;
-        //堆构造
+        //第一步 堆构造  把杂乱无章的数组构造成堆
         /**
          * n=8,(n/2-1) = 3  即3 2 1 0这个四个节点才有子节点,先把这个堆构造起来，因为是完全二叉树，节点是顺序序号，对应数组下标
          * 首先从最下面的节点开始推，从下往上推
@@ -36,8 +36,9 @@ public class HeapSort {
         int left, right, p;
         //  公式反推，推出节点左右子节点
         //  判断当前父节点有无左节点（即有无孩子节点，left为左节点）
+        //  完全二叉树  子节点是 2*n+1 右是2*n+2
         while ((left = 2 * index + 1) <= length) {
-            //j"指针指向左节点"
+            //p"指针指向左节点"
             p = left;
             //右节点
             right = left + 1;

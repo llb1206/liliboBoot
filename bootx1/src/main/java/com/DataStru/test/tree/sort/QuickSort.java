@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * @author 15000
+ * https://blog.csdn.net/nrsc272420199/article/details/82587933?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.
+ * control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.control
  */
 public class QuickSort {
     private static void quickSort(int[] arr, int low, int high) {
@@ -23,7 +25,7 @@ public class QuickSort {
         // 基准数据
         int tmp = arr[low];
         while (low < high) {
-            // 当队尾的元素大于等于基准数据时,向前挪动high指针,直到停留在
+            // 当队尾的元素大于等于基准数据时,向前挪动high指针,直到停留在    这个是有一个技巧的 看文章动画
             while (low < high && arr[high] >= tmp) {
                 high--;
             }
