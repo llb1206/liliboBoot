@@ -1,4 +1,4 @@
-package com.DataStru.test.tree.sort;
+package com.DataStru.MySort.sort;
 
 import java.util.Arrays;
 

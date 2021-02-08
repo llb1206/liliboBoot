@@ -1,4 +1,4 @@
-package com.DataStru.test.tree;
+package com.DataStru.MySort;
 
 public class ArrBinaryTreeDemo {
 

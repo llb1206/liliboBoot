@@ -1,4 +1,4 @@
-package com.DataStru.test.tree;
+package com.DataStru.MySort;
 
 import java.util.HashSet;
 import java.util.LinkedList;
