@@ -1,4 +1,4 @@
-package com.DataStru.MySort.sort;
+package com.DataStru.sort;
 
 import java.util.Arrays;
 

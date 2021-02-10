@@ -1,4 +1,4 @@
-package com.DataStru.sj.sort;
+package com.DataStru.sort;
 
 import java.util.Stack;
 import java.util.logging.Logger;
