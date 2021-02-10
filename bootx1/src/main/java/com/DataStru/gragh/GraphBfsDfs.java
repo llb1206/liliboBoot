@@ -18,7 +18,7 @@ public class GraphBfsDfs {
     static int[] help = new int[graph.length];
 
     /**
-     * dfs
+     * dfs  深度优先搜索  跟二叉树思想差不多
      *
      * @param num
      * @param graph
@@ -57,6 +57,6 @@ public class GraphBfsDfs {
 
     public static void main(String[] args) {
         //Dfs(0, graph);
-        //Bfs(graph);
+        Bfs(graph);
     }
 }

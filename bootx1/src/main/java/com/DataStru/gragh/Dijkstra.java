@@ -1,26 +1,23 @@
 package com.DataStru.gragh;
 
+/**
+ * ×î¶ÌÂ·¾¶Ö®µÏ½ÜË¹ÌØÀ­
+ */
 public class Dijkstra {
-    /**
-     * è¿ªæ°æ–¯ç‰¹æ‹‰ç®—æ³•
-     *
-     * @param weight
-     * @param start
-     * @return
-     */
+
     private static int[] dijkstra(int[][] weight, int start) {
-        int n = weight.length;//ç¡®å®šæœ‰å‡ ä¸ªé¡¶ç‚¹
-        int[] shortPath = new int[n];//è®°å½•ä»startåˆ°æ¯ä¸ªé¡¶ç‚¹çš„æœ€çŸ­è·¯å¾„
-        String[] path = new String[n];//è®°å½•ä»startåˆ°æ¯ä¸ªé¡¶ç‚¹æœ€çŸ­è·¯å¾„ç»è¿‡çš„ç‚¹
-        int[] visited = new int[n];//è®°å½•æ¯ä¸ªç‚¹æ˜¯å¦å·²è·å¾—æœ€çŸ­è·¯å¾„
+        int n = weight.length;//È·¶¨ÓĞ¼¸¸ö¶¥µã
+        int[] shortPath = new int[n];//¼ÇÂ¼´Óstartµ½Ã¿¸ö¶¥µãµÄ×î¶ÌÂ·¾¶
+        String[] path = new String[n];//¼ÇÂ¼´Óstartµ½Ã¿¸ö¶¥µã×î¶ÌÂ·¾¶¾­¹ıµÄµã
+        int[] visited = new int[n];//¼ÇÂ¼Ã¿¸öµãÊÇ·ñÒÑ»ñµÃ×î¶ÌÂ·¾¶
         for (int i = 0; i < n; i++) {
             path[i] = start + "--->" + i;
         }
         shortPath[start] = 0;
         visited[start] = 1;
         for (int count = 1; count < n; count++) {
-            int k = -1;//æ‰¾å‡ºæœ€çŸ­è·¯å¾„çš„ç‚¹
-            int dmin = Integer.MAX_VALUE;//è®°å½•æœ€çŸ­è·¯å¾„
+            int k = -1;//ÕÒ³ö×î¶ÌÂ·¾¶µÄµã
+            int dmin = Integer.MAX_VALUE;//¼ÇÂ¼×î¶ÌÂ·¾¶
             for (int i = 0; i < n; i++) {
                 if (visited[i] != 1 && weight[start][i] < dmin) {
                     k = i;
@@ -38,16 +35,19 @@ public class Dijkstra {
             }
         }
         for (int i = 0; i < n; i++) {
-            System.out.println(start + "åˆ°" + i + "çš„æœ€çŸ­è·¯å¾„ä¸ºï¼š" + path[i]);
+            System.out.println(start + "µ½" + i + "µÄ×î¶ÌÂ·¾¶Îª£º" + path[i]);
         }
         return shortPath;
     }
 
-    //åˆå§‹åŒ–
-//stark--->k
-//stark--->k--->içš„è·ç¦»  < stark--->içš„è·ç¦»
-//é‡å¤23æ­¥éª¤
-    static int M = 10000;//è®¾ç½®è·ç¦»æœ€å¤§å€¼è¡¨ç¤ºæ­¤è·¯ä¸é€š
+    /**
+     * ³õÊ¼»¯
+     * stark--->k
+     * stark--->k--->iµÄ¾àÀë  < stark--->iµÄ¾àÀë
+     * ÖØ¸´23²½Öè
+     */
+
+    static int M = 10000;//ÉèÖÃ¾àÀë×î´óÖµ±íÊ¾´ËÂ·²»Í¨
 
     public static void main(String[] args) {
         int[][] weight = {
@@ -61,9 +61,8 @@ public class Dijkstra {
         };
         int start = 0;
         int[] shortPath = dijkstra(weight, start);
-
         for (int i = 0; i < shortPath.length; i++) {
-            System.out.println(start + "åˆ°" + i + "çš„æœ€çŸ­è·ç¦»ä¸ºï¼š" + shortPath[i]);
+            System.out.println(start + "µ½" + i + "µÄ×î¶Ì¾àÀëÎª£º" + shortPath[i]);
         }
     }
 }
