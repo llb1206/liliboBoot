@@ -1,10 +1,9 @@
 package bootx.rabbitMq.provide;
-import org.springframework.amqp.core.MessageProperties;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sun.plugin2.message.Message;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

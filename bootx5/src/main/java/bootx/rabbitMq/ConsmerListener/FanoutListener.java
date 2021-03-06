@@ -25,7 +25,7 @@ public class FanoutListener {
             System.out.println("FanoutReceiverA消费者收到消息  : " + testMessage.toString());
         } catch (Exception e) {
             //channel.basicReject(testMessage.getMessageProperties().getDeliveryTag(), false);
-            channel.basicNack(testMessage.getMessageProperties().getDeliveryTag(), false,false);
+            channel.basicNack(testMessage.getMessageProperties().getDeliveryTag(), false, false);
             rabbitTemplate.convertAndSend("sixinExchange", "sixin", str);
         }
     }
@@ -39,10 +39,12 @@ public class FanoutListener {
     public void processC(Map testMessage) {
         System.out.println("FanoutReceiverC消费者收到消息  : " + testMessage.toString());
     }
+
     @RabbitListener(queues = "sixinQueue")
-    public void processsixin(Map testMessage,Message message) {
-        System.out.println("死信释放"+message.getMessageProperties().getDeliveryTag());
+    public void processsixin(Map testMessage, Message message) {
+        System.out.println("死信释放" + message.getMessageProperties().getDeliveryTag());
     }
+
     @RabbitListener(queues = "fanout.D")
     public void processsixind(Map testMessage) {
         System.out.println("死信释放");

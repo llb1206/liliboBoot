@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @RestController
-public class SsController {
+public class FileteController {
     //http://localhost:1111/login?name=root&pwd=root
     @RequestMapping("login")
     public String login(String name, String pwd, HttpServletRequest request) {

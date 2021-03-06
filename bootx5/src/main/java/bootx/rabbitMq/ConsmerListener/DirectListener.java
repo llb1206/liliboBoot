@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Map;
+
 @Slf4j
 @Component
 public class DirectListener {
@@ -20,7 +21,7 @@ public class DirectListener {
     @RabbitListener(queues = "TestDirectQueue")
     public void process(Map testMessage, Message Message, Channel channel) throws IOException {
         try {
-            int a = 1 / 0;//判断条件
+            int a = 1 / 0;//判断条件  以触发死信
             System.out.println("DirectQueue  : " + testMessage.toString());
             channel.basicAck(Message.getMessageProperties().getDeliveryTag(), false);//放最后
         } catch (Exception e) {
@@ -57,7 +58,7 @@ public class DirectListener {
             //channel.basicAck(Message.getMessageProperties().getDeliveryTag(), true);//放最后
             channel.basicNack(Message.getMessageProperties().getDeliveryTag(), false, false);
             rabbitTemplate.convertAndSend("sixinExchange", "sixin", testMessage);
-            log.info(Message.getMessageProperties().getDeliveryTag()+":进入死信队列.........");
+            log.info(Message.getMessageProperties().getDeliveryTag() + ":进入死信队列.........");
         }
     }
 
