@@ -7,6 +7,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 public class ListenerHeader {
     @RabbitListener(queues = "HEADERS_QUEUE")
     public void receiveHeadersQueue(byte[] message) {
-        log.info("receive : HeadersQueue {}", new String(message));
+        log.info("死信receive : HeadersQueue {}", new String(message));
     }
 }

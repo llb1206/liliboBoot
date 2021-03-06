@@ -14,23 +14,24 @@ import java.util.UUID;
 @RestController
 public class TuTuTuTuTuTuTu {
     //http://localhost:8080/sendDirectMessage
- 
+
     @Autowired
     RabbitTemplate rabbitTemplate;  //使用RabbitTemplate,这提供了接收/发送等等方法
- 
+
     @GetMapping("/sendDirectMessage")
     public String sendDirectMessage() {
         String messageId = String.valueOf(UUID.randomUUID());
         String messageData = "test message, hello!";
         String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        Map<String,Object> map=new HashMap<>();
-        map.put("messageId",messageId);
-        map.put("messageData",messageData);
-        map.put("createTime",createTime);
+        Map<String, Object> map = new HashMap<>();
+        map.put("messageId", messageId);
+        map.put("messageData", messageData);
+        map.put("createTime", createTime);
         //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
         rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map);
         return "ok";
     }
+
     @GetMapping("/sendTopicMessage1")
     public String sendTopicMessage1() {
         String messageId = String.valueOf(UUID.randomUUID());
@@ -56,6 +57,7 @@ public class TuTuTuTuTuTuTu {
         rabbitTemplate.convertAndSend("topicExchange", "topic.woman", womanMap);
         return "ok";
     }
+
     @GetMapping("/sendFanoutMessage")
     public String sendFanoutMessage() {
         String messageId = String.valueOf(UUID.randomUUID());
@@ -68,7 +70,6 @@ public class TuTuTuTuTuTuTu {
         rabbitTemplate.convertAndSend("fanoutExchange", null, map);
         return "ok";
     }
-
 
 
     @GetMapping("/sendHeadMessage")
@@ -86,15 +87,16 @@ public class TuTuTuTuTuTuTu {
 
     /**
      * 先从总体的情况分析，推送消息存在四种情况：
-     *
+     * <p>
      * ①消息推送到server，但是在server里找不到交换机
      * ②消息推送到server，找到交换机了，但是没找到队列
      * ③消息推送到sever，交换机和队列啥都没找到
      * ④消息推送成功
      * 那么我先写几个接口来分别测试和认证下以上4种情况，消息确认触发回调函数的情况
-     *
-     *
+     * <p>
+     * <p>
      * 以xia是生产者推送消息的消息确认 回调函数的使用介绍（可以在回调函数根据需求做对应的扩展或者业务数据处理）
+     *
      * @return
      */
     @GetMapping("/TestMessageAck")
@@ -109,6 +111,7 @@ public class TuTuTuTuTuTuTu {
         rabbitTemplate.convertAndSend("non-existent-exchange", "TestDirectRouting", map);
         return "ok";
     }
+
     @GetMapping("/TestMessageAck2")
     public String TestMessageAck2() {
         String messageId = String.valueOf(UUID.randomUUID());
@@ -121,6 +124,7 @@ public class TuTuTuTuTuTuTu {
         rabbitTemplate.convertAndSend("lonelyDirectExchange", "TestDirectRouting", map);
         return "ok";
     }
+
 }
  
 

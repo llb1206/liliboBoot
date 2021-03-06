@@ -2,7 +2,6 @@ package bootx.rabbitMq.ConsmerListener;
 
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.Message;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,8 @@ import java.util.Map;
 
 @Component
 public class FanoutListener {
+
+
     @Autowired
     RabbitTemplate rabbitTemplate;
 
@@ -38,15 +39,5 @@ public class FanoutListener {
     @RabbitListener(queues = "fanout.C")
     public void processC(Map testMessage) {
         System.out.println("FanoutReceiverC消费者收到消息  : " + testMessage.toString());
-    }
-
-    @RabbitListener(queues = "sixinQueue")
-    public void processsixin(Map testMessage, Message message) {
-        System.out.println("死信释放" + message.getMessageProperties().getDeliveryTag());
-    }
-
-    @RabbitListener(queues = "fanout.D")
-    public void processsixind(Map testMessage) {
-        System.out.println("死信释放");
     }
 }
