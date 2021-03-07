@@ -2,11 +2,9 @@ package com.Base.absInter;
 
 public abstract  class Car extends Object implements Runnable {
 
-    //抽象方法可以实现接口   //可以继承
-    //如果被子类继承，实现全部抽象方法
-
     /**
-     * 重点来了，如果你往抽象类里面添加方法，再给一个默认的实现，子类就可以拥有这些方法，达到了解耦合的目的！
+     * 可以理解成半成品
+     * 抽象类完成了类中主要功能的设计与实现，但是这个类还觉得不够完美，还应该有一些功能（方法），等待后续子类的实现。
      */
     static {
         System.out.printf("抽象方法可以拥有静态代码块");

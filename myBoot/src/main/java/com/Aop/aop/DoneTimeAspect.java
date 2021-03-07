@@ -18,4 +18,12 @@ public class DoneTimeAspect {
         System.out.println("方法结束时间是:"+new Date()) ;
         return o;
     }
+
+    public static void main(String[] args) {
+        int a=100;
+        Integer a2=100;
+        Integer a3=100;
+        Integer a4=100;
+        System.out.println(a==a2);
+    }
 }

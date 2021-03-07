@@ -10,4 +10,6 @@ public class Person {
     public static void eats(){
         System.out.println("fu类吃饭");
     }
+
+
 }

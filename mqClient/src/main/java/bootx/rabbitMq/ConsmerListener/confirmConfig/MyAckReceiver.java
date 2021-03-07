@@ -50,14 +50,16 @@ public class MyAckReceiver implements ChannelAwareMessageListener {
     }
 
     //{key=value,key=value,key=value} 格式转换成map
-    private Map<String, String> mapStringToMap(String str) {
+    public static Map<String, String> mapStringToMap(String str) {
         str = str.substring(1, str.length() - 1);
         String[] strs = str.split(",");
         Map<String, String> map = new HashMap<String, String>();
         for (String string : strs) {
             String key = string.split("=")[0].trim();
-            String value = string.split("=")[1];
-            map.put(key, value);
+            String[] value = string.split("=");
+            if (value.length < 2)continue;
+                String v = value[1];
+            map.put(key, v);
         }
         return map;
     }
